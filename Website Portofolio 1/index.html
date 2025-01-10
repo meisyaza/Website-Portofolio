@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/b3ef0fcf1f.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div id="header">
+      <div class="container">
+        <nav>
+          <img src="images/logo.png" class="logo" />
+          <ul>
+            <li><a href="#header">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-text">
+          <p>UI/UX Designer</p>
+          <h1>
+            Hi, I'am <span>Zacky Adie Nugroho</span><br />Mahasiswa Teknik
+            Informatika
+          </h1>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div id="about">
+      <div class="container">
+        <div class="row">
+          <div class="about-cal-1">
+            <img src="images/i.jpg" />
+          </div>
+          <div class="about-cal-2">
+            <h1 class="sub-title">About <span>Me</span></h1>
+            <p>
+              “Saya adalah mahasiswa semester 3 di program studi Teknik
+              Informatika Universitas PGRI Madiun. Yang memiliki minat besar
+              dalam bidang pengembangan perangkat lunak, desain UI/UX, dan
+              teknologi digital. Saya memiliki keterampilan dasar dalam
+              pemrograman, desain web."
+            </p>
+            <div class="tab-titles">
+              <p class="tab-links active-link" onclick="opentab('skills')">
+                Skills
+              </p>
+              <p class="tab-links" onclick="opentab('experience')">
+                Experience
+              </p>
+              <p class="tab-links" onclick="opentab('education')">Education</p>
+            </div>
+            <div class="tab-contents active-tab" id="skills">
+              <ul>
+                <li><span>UI/UX</span><br />Designing Web/App interface</li>
+                <li>
+                  <span>Desain Grafis</span><br />Editing Video & Pembuatan Logo
+                </li>
+                <li><span>Web Development</span><br />Web App Development</li>
+              </ul>
+            </div>
+            <div class="tab-contents" id="experience">
+              <ul>
+                <li>
+                  <span>2020 - Current</span><br />UI/UX Design Training at FT
+                  Institute
+                </li>
+                <li>
+                  <span>2019 - 2020</span><br />Team Leader at StarApp Youtube
+                </li>
+                <li><span>2015 - 2018</span><br />Internship at eCommerce</li>
+              </ul>
+            </div>
+            <div class="tab-contents" id="education">
+              <ul>
+                <li><span>2016</span><br />UI/UX Design Training</li>
+                <li><span>2017</span><br />IT Support in Tokopedia</li>
+                <li><span>2020</span><br />MBA from ISM Google</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <a href="next/mywork&hobby.html" target="_blank" class="seemore"
+        >See more</a
+      >
+    </div>
+
+
+    <div id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="contact-left">
+            <h1 class="sub-title">Contact Me</h1>
+            <p>
+              <i class="fa-solid fa-square-envelope"></i> zadie294@gmail.com
+            </p>
+            <p><i class="fa-solid fa-square-phone"></i> 08819310482</p>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/zacky.adie.7"
+                ><i class="fa-brands fa-facebook"></i
+              ></a>
+              <a href=""><i class="fa-brands fa-twitter"></i></a>
+              <a href="https://www.instagram.com/zackyadien/"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href=""><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <a href="resume.pdf" download class="btn btn2">Download CV</a>
+          </div>
+          <div class="contact-right">
+            <form>
+              <input type="text" name="Name" placeholder="Your Name" required />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+              />
+              <textarea
+                name="Message"
+                rows="6"
+                placeholder="Your Message"
+              ></textarea>
+              <button type="submit" class="btn btn2">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>
+          Copyright © Zaki <i class="fa-solid fa-code"></i> Teknik Informatika
+        </p>
+      </div>
+    </div>
+
+    <script>
+      var tablinks = document.getElementsByClassName("tab-links");
+      var tabcontents = document.getElementsByClassName("tab-contents");
+
+      const tabStack = [];
+
+      function opentab(tabname) {
+        Array.from(tabcontents).forEach((content) =>
+          content.classList.remove("active-tab")
+        );
+        Array.from(tablinks).forEach((link) =>
+          link.classList.remove("active-link")
+        );
+
+        tabStack.push(tabname);
+        document.getElementById(tabname).classList.add("active-tab");
+        Array.from(tablinks)
+          .find((link) => link.innerText.toLowerCase() === tabname)
+          .classList.add("active-link");
+      }
+
+      window.onload = () => opentab("skills");
+    </script>
+  </body>
+</html>

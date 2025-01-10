@@ -1,0 +1,184 @@
+/* Warna Latar dan Dasar */
+body {
+  background-color: #000; /* Latar belakang hitam untuk keseluruhan halaman. */
+  color: #fff; /* Teks berwarna putih agar kontras dengan latar. */
+  font-family: "Poppins", sans-serif; /* Menggunakan font 'Poppins', fallback 'sans-serif'. */
+}
+
+/* Pencarian (Sorting Container) */
+.sorting-container {
+  display: flex; /* Menyusun elemen input dan dropdown dalam satu baris. */
+  align-items: center; /* Menyelaraskan elemen secara vertikal di tengah. */
+  margin: 5px 0; /* Memberikan spasi atas dan bawah sebesar 5px. */
+}
+
+#search-input {
+  margin-right: 5px; /* Memberi jarak antara input teks dan dropdown. */
+  padding: 5px; /* Menambahkan ruang dalam input. */
+  font-size: 14px; /* Ukuran teks dalam input adalah 14px. */
+  width: 100px; /* Lebar input teks 100px. */
+  display: block; /* Memastikan input tampil sebagai elemen blok. */
+  border: 2px solid red; /* Bingkai merah dengan ketebalan 2px. */
+  border-radius: 4px; /* Membulatkan sudut bingkai input. */
+}
+
+#search-input:focus {
+  border: 2px solid red; /* Bingkai merah tetap saat input aktif. */
+  outline: none; /* Menghilangkan outline bawaan browser saat aktif. */
+}
+
+#category-select {
+  padding: 5px; /* Memberikan ruang dalam elemen dropdown. */
+  font-size: 14px; /* Ukuran teks dalam dropdown adalah 14px. */
+  border: 2px solid red; /* Bingkai merah dengan ketebalan 2px. */
+  border-radius: 4px; /* Membulatkan sudut dropdown. */
+  background-color: white; /* Latar belakang dropdown berwarna putih. */
+}
+
+#category-select:focus {
+  border: 2px solid red; /* Bingkai merah tetap saat dropdown aktif. */
+  outline: none; /* Menghilangkan outline bawaan browser. */
+}
+
+/* Konten Tersembunyi */
+.hidden {
+  display: none; /* Konten dengan kelas ini tidak ditampilkan. */
+}
+
+/* Judul Portofolio */
+.center-text {
+  font-size: 40px; /* Ukuran teks untuk judul adalah 40px. */
+  text-align: center; /* Teks diselaraskan ke tengah. */
+}
+
+.center-text span {
+  color: #ff004f; /* Memberikan warna merah pada teks dalam elemen <span>. */
+}
+
+/* Bagian Services */
+#services {
+  padding: 10px 40; /* Memberikan ruang di bagian atas dan bawah sebesar 10px. */
+}
+
+.services-list {
+  display: grid; /* Menampilkan elemen dalam format grid. */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Menyesuaikan jumlah kolom berdasarkan ukuran layar. */
+  grid-gap: 30px; /* Jarak antar elemen grid adalah 30px. */
+  margin-top: 20px; /* Memberikan jarak atas grid sebesar 20px. */
+}
+
+.services-list div {
+  background: #262626; /* Latar belakang abu-abu gelap untuk elemen layanan. */
+  padding: 40px; /* Memberikan ruang di dalam elemen layanan. */
+  font-size: 13px; /* Ukuran teks 13px. */
+  font-weight: 300; /* Berat font tipis. */
+  border-radius: 10px; /* Membulatkan sudut elemen layanan. */
+  transition: background 0.5s, transform 0.5s; /* Efek transisi pada warna dan posisi. */
+}
+
+.services-list div i {
+  font-size: 50px; /* Ukuran ikon sebesar 50px. */
+  margin-bottom: 30px; /* Jarak bawah ikon sebesar 30px. */
+}
+
+.services-list div h2 {
+  font-size: 30px; /* Ukuran teks untuk judul layanan adalah 30px. */
+  font-weight: 500; /* Berat font medium. */
+  margin-bottom: 15px; /* Jarak bawah judul layanan sebesar 15px. */
+}
+
+.services-list div a {
+  text-decoration: none; /* Menghilangkan garis bawah pada link. */
+  color: #fff; /* Warna teks link adalah putih. */
+  font-size: 12px; /* Ukuran teks link 12px. */
+  margin-top: 20px; /* Jarak atas link sebesar 20px. */
+  display: inline-block; /* Link tampil sebagai elemen inline dengan properti blok. */
+}
+
+.services-list div:hover {
+  background-color: #ff004f; /* Mengubah latar belakang menjadi merah saat di-hover. */
+  transform: translateY(-10px); /* Elemen naik 10px saat di-hover. */
+}
+
+/* Bagian Portofolio */
+#portofolio {
+  padding: 20px 0; /* Memberikan ruang atas dan bawah sebesar 20px. */
+}
+
+.work-list {
+  display: grid; /* Menampilkan elemen dalam format grid. */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Menyesuaikan jumlah kolom. */
+  grid-gap: 30px; /* Jarak antar elemen grid sebesar 30px. */
+  margin-top: 20px; /* Memberikan jarak atas sebesar 20px. */
+}
+
+.work-list img {
+  width: 105%; /* Lebar gambar lebih besar dari grid untuk efek overflow. */
+  height: 410px; /* Tinggi gambar adalah 410px. */
+  object-fit: cover; /* Gambar dipotong agar sesuai dengan ukuran tanpa distorsi. */
+  border-radius: 8px; /* Membulatkan sudut gambar. */
+  display: block; /* Gambar ditampilkan sebagai elemen blok. */
+}
+
+/* Elemen Portofolio (Work) */
+.work {
+  border-radius: 10px; /* Membulatkan sudut elemen portofolio. */
+  position: relative; /* Posisi relatif untuk lapisan tambahan. */
+  overflow: hidden; /* Menyembunyikan elemen yang melampaui batas elemen induk. */
+  display: flex; /* Elemen dalam work ditampilkan secara fleksibel. */
+  align-items: center; /* Menyelaraskan elemen secara vertikal di tengah. */
+  justify-content: center; /* Menyelaraskan elemen secara horizontal di tengah. */
+  flex-direction: column; /* Menyusun elemen secara vertikal. */
+  text-align: center; /* Teks di dalam elemen disejajarkan ke tengah. */
+}
+
+.work img {
+  width: 100%; /* Lebar gambar disesuaikan dengan elemen induk. */
+  border-radius: 10px; /* Membulatkan sudut gambar. */
+  display: block; /* Gambar tampil sebagai elemen blok. */
+  transition: transform 0.5s; /* Menambahkan efek transisi pada transformasi. */
+}
+
+.layer {
+  width: 100%; /* Lebar layer sesuai dengan elemen induk. */
+  height: 0; /* Layer tersembunyi secara default. */
+  background: linear-gradient(rgba(0, 0, 0, 0.6), #ff004f); /* Gradasi hitam ke merah. */
+  border-radius: 10px; /* Membulatkan sudut layer. */
+  position: absolute; /* Layer diposisikan absolut terhadap elemen induk. */
+  left: 0; /* Layer dimulai dari sisi kiri elemen induk. */
+  bottom: 0; /* Layer dimulai dari bagian bawah elemen induk. */
+  overflow: hidden; /* Menyembunyikan elemen yang keluar dari layer. */
+  display: flex; /* Elemen dalam layer ditampilkan fleksibel. */
+  align-items: center; /* Menyelaraskan elemen secara vertikal di tengah. */
+  justify-content: center; /* Menyelaraskan elemen secara horizontal di tengah. */
+  flex-direction: column; /* Elemen dalam layer disusun secara vertikal. */
+  padding: 0 20px; /* Padding kiri dan kanan sebesar 20px. */
+  text-align: center; /* Teks dalam layer disejajarkan ke tengah. */
+  font-size: 14px; /* Ukuran teks dalam layer adalah 14px. */
+  transition: height 0.5s; /* Efek transisi pada tinggi layer. */
+}
+
+.layer h3 {
+  font-weight: 500; /* Berat teks judul layer adalah medium. */
+  margin-bottom: 20px; /* Jarak bawah sebesar 20px. */
+}
+
+.layer p {
+  max-width: 75%; /* Lebar maksimum teks 75% dari elemen induk. */
+  line-height: 1.5; /* Tinggi baris teks 1.5 kali ukuran font. */
+}
+
+.layer a {
+  margin-top: 20px; /* Jarak atas sebesar 20px. */
+  color: #ff004f; /* Warna teks merah. */
+  background: #fff; /* Latar belakang putih. */
+  border-radius: 50%; /* Link berbentuk lingkaran. */
+}
+
+.work:hover img {
+  transform: scale(1.1); /* Gambar diperbesar saat di-hover. */
+}
+
+.work:hover .layer {
+  height: 100%; /* Layer memenuhi elemen saat di-hover. */
+}

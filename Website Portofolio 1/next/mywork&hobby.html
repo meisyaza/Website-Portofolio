@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mywork&hoby</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/b3ef0fcf1f.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+    <h2 class="center-text">PORTO<span>FOLIO</span></h2>
+  
+    <div class="sorting-container">
+      <input type="text" id="search-input" placeholder="Cari..." />
+      <select id="category-select">
+        <option value="all">All</option>
+        <option value="skills">My Services</option>
+        <option value="hobby">Hobby</option>
+        <option value="activities">Kegiatan Di Luar Kampus</option>
+      </select>
+    </div>
+  
+    <div id="services">
+      <div class="container">
+        <h1 class="sub-title">My Services</h1>
+        <div id="services-list" class="services-list"></div>
+      </div>
+    </div>
+  
+    <div id="hobby">
+      <div class="container">
+        <h1 class="sub-title">Hobby</h1>
+        <div id="hobby-list" class="work-list"></div>
+      </div>
+    </div>
+  
+    <div id="activities">
+      <div class="container">
+        <h1 class="sub-title">Kegiatan Di Luar Kampus</h1>
+        <div id="activities-list" class="work-list"></div>
+      </div>
+    </div>
+
+    <script>
+      let services = [
+        {
+          icon: "fa-solid fa-code",
+          title: "Web Design",
+          description:
+            "Mampu dalam desain visual yang diterapkan kepada media digital yaitu website, desain yang ditunjukan untuk pengembangan dan styling informasi di internet untuk menyediakan fitur konsumen high-end dan memberikan kualitas estetika.",
+          link: "#",
+        },
+        {
+          icon: "fa-solid fa-crop",
+          title: "UI/UX Design",
+          description:
+            "Merancang sebuah tampilan pada aplikasi ataupun website di mana produk atau layanannya dapat berfungsi dengan baik dan memiliki kemudahan akses oleh para penggunanya. Serta agar nyaman dilihat.",
+          link: "#",
+        },
+        {
+          icon: "fa-solid fa-wand-magic-sparkles",
+          title: "Graphic Designer",
+          description:
+            "Mampu menciptakan ilustrasi, tipografi, fotografi, atau grafis motion baik untuk penerbit maupun media cetak dan elektronik, Bertanggung jawab atas tampilan dan media promosi suatu produk.",
+          link: "#",
+        },
+      ];
+
+      let hobbies = [
+        {
+          image: "x/gusdur.jpg",
+          title: "Sketch",
+          description:
+            "Saya juga Hobi menggambar meskipun hanya dengan lukisan hitam putih, Hobi ini sudah ada sejak 2018 lalu.",
+          link: "#",
+        },
+        {
+          image: "x/merbabu.jpg",
+          title: "Hiking",
+          description:
+            "Hiking ataupun disebut Mendaki merupakan juga sempatkan saat ada waktu luang maupun liburan",
+          link: "#",
+        },
+        {
+          image: "x/02.jpg",
+          title: "Fotografi",
+          description:
+            "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+          link: "#",
+        },
+      ];
+
+      let activities = [
+        {
+          image: "x/Lii.jpg",
+          title: "IPNU",
+          description:
+            "Ikut Berorganisasi IPNU<br>(Ikatan Pelajar Nahdatul Ulama)",
+          link: "#",
+        },
+        {
+          image: "x/me.png",
+          title: "Vokalis Hadroh",
+          description:
+            "Saya juga seorang vokalis Hadroh/Sholawatan dalam grub.",
+          link: "#",
+        },
+        {
+          image: "x/skeleton.jpeg",
+          title: "Mengaji",
+          description:
+            "Mengisi waktu luang dengan mengaji meskipun sedikit tapi gapapalah",
+          link: "#",
+        },
+      ];
+
+  function renderServices() { 
+    const servicesList = document.getElementById("services-list"); 
+    servicesList.innerHTML = services
+        .map(
+            (service) => 
+                `<div>
+                    <i class="${service.icon}"></i> 
+                    <h2>${service.title}</h2> 
+                    <p>${service.description}</p> 
+                    <a href="${service.link}">Next</a> 
+                </div>`
+        )
+        .join(""); 
+}
+
+      function renderHobbies() {
+        const hobbyList = document.getElementById("hobby-list");
+        hobbyList.innerHTML = hobbies
+          .map(
+            (hobby) =>
+              `<div class="work">
+                        <img src="${hobby.image}">
+                        <div class="layer">
+                            <h3>${hobby.title}</h3>
+                            <p>${hobby.description}</p>
+                            <a href="${hobby.link}"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>`
+          )
+          .join("");
+      }
+
+      function renderActivities() {
+        const activitiesList = document.getElementById("activities-list");
+        activitiesList.innerHTML = activities
+          .map(
+            (activity) =>
+              `<div class="work">
+                        <img src="${activity.image}">
+                        <div class="layer">
+                            <h3>${activity.title}</h3>
+                            <p>${activity.description}</p>
+                            <a href="${activity.link}"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>`
+          )
+          .join("");
+      }
+
+      //SEARCHING______________________________________________________________________________________________________________________________________
+      function filterItems() { 
+    const searchTerm = document
+        .getElementById("search-input") 
+        .value.toLowerCase(); 
+
+    const servicesList = document.getElementById("services-list"); 
+    const hobbyList = document.getElementById("hobby-list");
+    const activitiesList = document.getElementById("activities-list"); 
+
+    let filteredServices = "";
+    let filteredHobbies = ""; 
+    let filteredActivities = "";
+
+
+    for (let i = 0; i < services.length; i++) { 
+        if (services[i].title.toLowerCase().includes(searchTerm)) { 
+            filteredServices += ` 
+                <div>
+                    <i class="${services[i].icon}"></i> 
+                    <h2>${services[i].title}</h2> 
+                    <p>${services[i].description}</p> 
+                    <a href="${services[i].link}">Next</a> 
+                </div>`; 
+        }
+    }
+
+  
+    for (let i = 0; i < hobbies.length; i++) { 
+        if (hobbies[i].title.toLowerCase().includes(searchTerm)) { 
+            filteredHobbies += ` 
+                <div class="work">
+                    <img src="${hobbies[i].image}">
+                    <div class="layer">
+                        <h3>${hobbies[i].title}</h3>
+                        <p>${hobbies[i].description}</p>
+                        <a href="${hobbies[i].link}"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>`; 
+        }
+    }
+
+
+    for (let i = 0; i < activities.length; i++) { 
+        if (activities[i].title.toLowerCase().includes(searchTerm)) { 
+            filteredActivities += ` 
+                <div class="work">
+                    <img src="${activities[i].image}">
+                    <div class="layer">
+                        <h3>${activities[i].title}</h3>
+                        <p>${activities[i].description}</p>
+                        <a href="${activities[i].link}"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>`; 
+        }
+    }
+
+   
+    servicesList.innerHTML = filteredServices || "<p>Coba lagi</p>"; 
+    hobbyList.innerHTML = filteredHobbies || "<p>Coba lagi</p>"; 
+    activitiesList.innerHTML = filteredActivities || "<p>Coba lagi</p>"; 
+}
+
+document 
+    .getElementById("search-input") 
+    .addEventListener("input", filterItems); 
+
+    
+      //SORTING______________________________________________________________________________________________________________________
+      function sortItems(items, order) { 
+    return items.slice().sort((a, b) => { 
+        if (order === "asc") return a.title.localeCompare(b.title); 
+        if (order === "desc") return b.title.localeCompare(a.title); 
+        return 0; 
+    });
+}
+
+const categorySelect = document.getElementById("category-select");
+const sections = { 
+    skills: document.getElementById("services"),
+    hobby: document.getElementById("hobby"), 
+    activities: document.getElementById("activities"), 
+};
+
+categorySelect.addEventListener("change", () => { 
+    const selectedCategory = categorySelect.value; 
+    for (let section in sections) { 
+        if (selectedCategory === "all") { 
+            sections[section].style.display = "block"; 
+        } else {
+            sections[section].style.display = 
+                section === selectedCategory ? "block" : "none";
+        }
+    }
+});
+
+categorySelect.dispatchEvent(new Event("change")); 
+
+renderServices(); 
+renderHobbies(); 
+renderActivities(); 
+
+    </script>
+  </body>
+</html>
